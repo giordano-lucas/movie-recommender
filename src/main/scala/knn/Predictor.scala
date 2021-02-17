@@ -1,4 +1,4 @@
-package predict
+package knn
 
 import org.rogach.scallop._
 import org.json4s.jackson.Serialization
