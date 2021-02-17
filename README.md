@@ -43,16 +43,16 @@ Do include your own ratings in your final submission so we can check your answer
 
 # Usage
 
-## Compute statistics
+## Compute similarity predictions
 
 ````
-> sbt "runMain stats.Analyzer --data data/ml-100k/u.data --json statistics.json"
+> sbt "runMain similarity.Predictor --train data/ml-100k/u1.base --test data/ml-100k/u1.test --json similarity.json"
 ````
-
-## Compute predictions
+    
+## Compute k-NN predictions
 
 ````
-> sbt "runMain predict.Predictor --train data/ml-100k/u1.base --test data/ml-100k/u1.test --json predictions.json"
+> sbt "runMain knn.Predictor --train data/ml-100k/u1.base --test data/ml-100k/u1.test --json knn.json"
 ````
 
 ## Compute recommendations
