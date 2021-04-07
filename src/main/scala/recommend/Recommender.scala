@@ -66,7 +66,6 @@ object Recommender extends App {
           // please report the top-5 recommendations that have the smallest
           // movie identifier.
 
-
           "Q3.2.5" -> Map(
             "Top5WithK=30" ->
               List[Any](
@@ -84,10 +83,9 @@ object Recommender extends App {
                 List(0, "", 0.0), // respectively
                 List(0, "", 0.0),
                 List(0, "", 0.0)
-              ),
+              )
 
-            "DifferenceBetweenK" -> "Provide answer on report", // Do not modify this line!
-            "DifferenceWithMilestone1" -> "Provide answer on report" // Do not modify this line!
+            // Discuss the differences in rating depending on value of k in the report.
           )
         )
         json = Serialization.writePretty(answers)
