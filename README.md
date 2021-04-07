@@ -10,15 +10,15 @@ Should be available by default on the IC Cluster. Otherwise, refer to each proje
 
 Download the ````ml-100k.zip```` dataset in the ````data/```` folder:
 ````
-> mkdir data
+> mkdir -p data
 > cd data
-> wget http://files.grouplens.org/datasets/movielens/ml-100k.zip   
+> wget http://files.grouplens.org/datasets/movielens/ml-100k.zip
 ````
 
 Check the integrity of the file with (it should give the same number as below):
 ````
 > md5 -q ml-100k.zip
-0e33842e24a9c977be4e0107933c0723 
+0e33842e24a9c977be4e0107933c0723
 ````
 
 Unzip:
@@ -28,7 +28,7 @@ Unzip:
 
 # Personal Ratings
 
-Add your ratings in the 'data/personal.csv' file, by providing a numerical rating between [1,5] for at least 20 movies. For example, to rate the 'Toy Story' movie with '5', modify this line:
+Add your ratings in the `data/personal.csv` file, by providing a numerical rating between [1,5] for at least 20 movies. For example, to rate the 'Toy Story' movie with '5', modify this line:
 
 ````
 1,Toy Story (1995),
@@ -41,6 +41,8 @@ to this:
 
 Do include your own ratings in your final submission so we can check your answers against those provided in your report.
 
+**Important: Edit the `data/personal.csv` file using your IDE/editor. Do not use applications such as Microsoft Excel, as there is the risk of changing the commas (,) to semicolons (;).**
+
 # Usage
 
 ## Compute similarity predictions
@@ -48,7 +50,7 @@ Do include your own ratings in your final submission so we can check your answer
 ````
 > sbt "runMain similarity.Predictor --train data/ml-100k/u1.base --test data/ml-100k/u1.test --json similarity.json"
 ````
-    
+
 ## Compute k-NN predictions
 
 ````
@@ -66,9 +68,9 @@ Steps:
 
     1. Update the ````name````, ````maintainer```` fields of ````build.sbt````, with the correct Milestone number, your ID, and your email.
     2. Ensure you only used the dependencies listed in ````build.sbt```` in this template, and did not add any other.
-    3. Remove ````project/project````, ````project/target````, and ````target/````.  
+    3. Remove ````project/project````, ````project/target````, and ````target/````.
     4. Test that all previous commands for generating statistics, predictions, and recommendations correctly produce a JSON file (after downloading/reinstalling dependencies).
-    5. Remove the ml-100k dataset (````data/ml-100k.zip````, and ````data/ml-100k````), as well as the````project/project````, ````project/target````, and ````target/````. 
+    5. Remove the ml-100k dataset (````data/ml-100k.zip````, and ````data/ml-100k````), as well as the````project/project````, ````project/target````, and ````target/````.
     6. Add your report and any other necessary files listed in the Milestone description (see ````Deliverables````).
     7. Zip the archive.
     8. Submit to the TA for grading.
