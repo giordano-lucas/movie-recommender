@@ -63,7 +63,8 @@ object Predictor extends App {
         implicit val formats = org.json4s.DefaultFormats
         val answers: Map[String, Any] = Map(
           "Q3.2.1" -> Map(
-            "ImpactOfKOnPrecitionAccuracy" -> "Provide answer on report", // Do not modify this line!
+            // Discuss the impact of varying k on prediction accuracy on
+            // the report.
             "MaeForK=10" -> 0.0, // Datatype of answer: Double
             "MaeForK=30" -> 0.0, // Datatype of answer: Double
             "MaeForK=50" -> 0.0, // Datatype of answer: Double
@@ -72,22 +73,29 @@ object Predictor extends App {
             "MaeForK=400" -> 0.0, // Datatype of answer: Double
             "MaeForK=800" -> 0.0, // Datatype of answer: Double
             "MaeForK=943" -> 0.0, // Datatype of answer: Double
-            "MaeOfBaselineMethod" -> 0.7669, // Provided for response to question below. Do not modify this line!
-            "LowestKWithBetterMaeThanBaseline" -> 0.0, // Datatype of answer: Double
-            "AbsoluteDiffBetweenLowestKWithBetterMaeAndBaseline" -> 0.0 // Datatype of answer: Double
+            "LowestKWithBetterMaeThanBaseline" -> 0, // Datatype of answer: Int
+            "LowestKMaeMinusBaselineMae" -> 0.0 // Datatype of answer: Double
           ),
 
-          "Q3.2.2" -> "Provide answer on report", // Do not modify this line!
+          "Q3.2.2" ->  Map(
+            // Provide the formula the computes the minimum number of bytes required,
+            // as a function of the size U in the report.
+            "MinNumberOfBytesForK=10" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=30" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=50" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=100" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=200" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=400" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=800" -> 0, // Datatype of answer: Int
+            "MinNumberOfBytesForK=943" -> 0 // Datatype of answer: Int
+          ),
 
           "Q3.2.3" -> Map(
-            "SizeOfRamInMiB" -> 0, // Datatype of answer: Int
-            "MaximumNumberOfUserThatCanFitInRam" -> 0 // Datatype of answer: Int
-          ),
-
-          "Q3.2.4" -> Map(
-            "ValueOfKImpactsNumberOfSuvToCompute" -> false, // Datatype of answer: Bool
-            "IfYouAnswerIsTrue" -> "Provide answer on report", // Do not modify this line!
+            "SizeOfRamInBytes" -> 0, // Datatype of answer: Int
+            "MaximumNumberOfUsersThatCanFitInRam" -> 0 // Datatype of answer: Int
           )
+
+          // Answer the Question 3.2.4 exclusively on the report.
          )
         json = Serialization.writePretty(answers)
       }
