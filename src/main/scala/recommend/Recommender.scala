@@ -24,29 +24,29 @@ object Recommender extends App {
   val spark = SparkSession.builder()
     .master("local[1]")
     .getOrCreate()
-  spark.sparkContext.setLogLevel("ERROR") 
+  spark.sparkContext.setLogLevel("ERROR")
 
   println("")
   println("******************************************************")
 
-  var conf = new Conf(args) 
-  println("Loading data from: " + conf.data()) 
+  var conf = new Conf(args)
+  println("Loading data from: " + conf.data())
   val dataFile = spark.sparkContext.textFile(conf.data())
   val data = dataFile.map(l => {
       val cols = l.split("\t").map(_.trim)
       Rating(cols(0).toInt, cols(1).toInt, cols(2).toDouble)
-  }) 
+  })
   assert(data.count == 100000, "Invalid data")
 
-  println("Loading personal data from: " + conf.personal()) 
+  println("Loading personal data from: " + conf.personal())
   val personalFile = spark.sparkContext.textFile(conf.personal())
   // TODO: Extract ratings and movie titles
   assert(personalFile.count == 1682, "Invalid personal data")
 
- 
+
 
   // Save answers as JSON
-  def printToFile(content: String, 
+  def printToFile(content: String,
                   location: String = "./answers.json") =
     Some(new java.io.PrintWriter(location)).foreach{
       f => try{
@@ -54,21 +54,42 @@ object Recommender extends App {
       } finally{ f.close }
   }
   conf.json.toOption match {
-    case None => ; 
+    case None => ;
     case Some(jsonFile) => {
       var json = "";
       {
         // Limiting the scope of implicit formats with {}
         implicit val formats = org.json4s.DefaultFormats
         val answers: Map[String, Any] = Map(
-           "4.1.1" -> List[Any](
-             List(0,"Tron", 5.0),
-             List(0,"Tron", 5.0),
-             List(0,"Tron", 5.0),
-             List(0,"Tron", 5.0),
-             List(0,"Tron", 5.0)
-           )
-         )
+
+          // IMPORTANT: To break ties and ensure reproducibility of results,
+          // please report the top-5 recommendations that have the smallest
+          // movie identifier.
+
+
+          "Q3.2.5" -> Map(
+            "Top5WithK=30" ->
+              List[Any](
+                List(0, "", 0.0), // Datatypes for answer: Int, String, Double
+                List(0, "", 0.0), // Representing: Movie Id, Movie Title, Predicted Rating
+                List(0, "", 0.0), // respectively
+                List(0, "", 0.0),
+                List(0, "", 0.0)
+              ),
+
+            "Top5WithK=300" ->
+              List[Any](
+                List(0, "", 0.0), // Datatypes for answer: Int, String, Double
+                List(0, "", 0.0), // Representing: Movie Id, Movie Title, Predicted Rating
+                List(0, "", 0.0), // respectively
+                List(0, "", 0.0),
+                List(0, "", 0.0)
+              ),
+
+            "DifferenceBetweenK" -> "Provide answer on report", // Do not modify this line!
+            "DifferenceWithMilestone1" -> "Provide answer on report" // Do not modify this line!
+          )
+        )
         json = Serialization.writePretty(answers)
       }
 

@@ -24,33 +24,30 @@ object Predictor extends App {
   val spark = SparkSession.builder()
     .master("local[1]")
     .getOrCreate()
-  spark.sparkContext.setLogLevel("ERROR") 
+  spark.sparkContext.setLogLevel("ERROR")
 
   println("")
   println("******************************************************")
 
-  var conf = new Conf(args) 
-  println("Loading training data from: " + conf.train()) 
+  var conf = new Conf(args)
+  println("Loading training data from: " + conf.train())
   val trainFile = spark.sparkContext.textFile(conf.train())
   val train = trainFile.map(l => {
       val cols = l.split("\t").map(_.trim)
       Rating(cols(0).toInt, cols(1).toInt, cols(2).toDouble)
-  }) 
+  })
   assert(train.count == 80000, "Invalid training data")
 
-  println("Loading test data from: " + conf.test()) 
+  println("Loading test data from: " + conf.test())
   val testFile = spark.sparkContext.textFile(conf.test())
   val test = testFile.map(l => {
       val cols = l.split("\t").map(_.trim)
       Rating(cols(0).toInt, cols(1).toInt, cols(2).toDouble)
-  }) 
+  })
   assert(test.count == 20000, "Invalid test data")
 
-  val globalPred = 3.0
-  val globalMae = test.map(r => scala.math.abs(r.rating - globalPred)).reduce(_+_) / test.count.toDouble
-
   // Save answers as JSON
-  def printToFile(content: String, 
+  def printToFile(content: String,
                   location: String = "./answers.json") =
     Some(new java.io.PrintWriter(location)).foreach{
       f => try{
@@ -58,16 +55,39 @@ object Predictor extends App {
       } finally{ f.close }
   }
   conf.json.toOption match {
-    case None => ; 
+    case None => ;
     case Some(jsonFile) => {
       var json = "";
       {
         // Limiting the scope of implicit formats with {}
         implicit val formats = org.json4s.DefaultFormats
         val answers: Map[String, Any] = Map(
-           "3.1.4" -> Map(
-             "global-mae" -> globalMae
-           )
+          "Q3.2.1" -> Map(
+            "ImpactOfKOnPrecitionAccuracy" -> "Provide answer on report", // Do not modify this line!
+            "MaeForK=10" -> 0.0, // Datatype of answer: Double
+            "MaeForK=30" -> 0.0, // Datatype of answer: Double
+            "MaeForK=50" -> 0.0, // Datatype of answer: Double
+            "MaeForK=100" -> 0.0, // Datatype of answer: Double
+            "MaeForK=200" -> 0.0, // Datatype of answer: Double
+            "MaeForK=400" -> 0.0, // Datatype of answer: Double
+            "MaeForK=800" -> 0.0, // Datatype of answer: Double
+            "MaeForK=943" -> 0.0, // Datatype of answer: Double
+            "MaeOfBaselineMethod" -> 0.7669, // Provided for response to question below. Do not modify this line!
+            "LowestKWithBetterMaeThanBaseline" -> 0.0, // Datatype of answer: Double
+            "AbsoluteDiffBetweenLowestKWithBetterMaeAndBaseline" -> 0.0 // Datatype of answer: Double
+          ),
+
+          "Q3.2.2" -> "Provide answer on report", // Do not modify this line!
+
+          "Q3.2.3" -> Map(
+            "SizeOfRamInMiB" -> 0, // Datatype of answer: Int
+            "MaximumNumberOfUserThatCanFitInRam" -> 0 // Datatype of answer: Int
+          ),
+
+          "Q3.2.4" -> Map(
+            "ValueOfKImpactsNumberOfSuvToCompute" -> false, // Datatype of answer: Bool
+            "IfYouAnswerIsTrue" -> "Provide answer on report", // Do not modify this line!
+          )
          )
         json = Serialization.writePretty(answers)
       }
