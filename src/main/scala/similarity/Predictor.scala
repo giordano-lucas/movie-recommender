@@ -68,7 +68,7 @@ object Predictor extends App {
           ),
 
           "Q2.3.2" -> Map(
-            "JaccardSimilarityTechniqueMae" -> 0.0, // Datatype of answer: Double
+            "JaccardMae" -> 0.0, // Datatype of answer: Double
             "JaccardMinusCosineDifference" -> 0.0 // Datatype of answer: Double
           ),
 
