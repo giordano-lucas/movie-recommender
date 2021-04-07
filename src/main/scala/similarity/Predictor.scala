@@ -64,23 +64,21 @@ object Predictor extends App {
         val answers: Map[String, Any] = Map(
           "Q2.3.1" -> Map(
             "CosineBasedMae" -> 0.0, // Datatype of answer: Double
-            "PredictionAccuracyImproved" -> false // Datatype of answer: Bool
+            "CosineMinusBaselineDifference" -> 0.0 // Datatype of answer: Double
           ),
 
           "Q2.3.2" -> Map(
-            "AvailableSimilarityTechniques" -> List("Jaccard", "Sørensen–Dice", "Szymkiewicz–Simpson"), // Do not modify this line!
-            "SelectedSimilarityTechnique" -> "Jaccard", // Datatype of answer: String. Pick an element from `AvailableSimilarityTechniques`
-            "SelectedSimilarityTechniqueMae" -> 0.0, // Datatype of answer: Double
-            "SelectedBetterThanCosine" -> false // Datatype of answer: Bool
+            "JaccardSimilarityTechniqueMae" -> 0.0, // Datatype of answer: Double
+            "JaccardMinusCosineDifference" -> 0.0 // Datatype of answer: Double
           ),
 
           "Q2.3.3" -> Map(
-            "NumberOfSimilarityComputationsAsFunctionOfU" -> "Provide formula on report", // Do not modify this line!
-            "NumberOfSimilarityComputationsForWorkingDataset" -> 0 // Datatype of answer: Int
+            // Provide the formula that computes the number of similarity computations
+            // as a function of U in the report.
+            "NumberOfSimilarityComputationsForU1BaseDataset" -> 0 // Datatype of answer: Int
           ),
 
           "Q2.3.4" -> Map(
-            "MinimumNumberOfMultiplications" -> 0, // Datatype of answer: Int
             "CosineSimilarityStatistics" -> Map(
               "min" -> 0.0,  // Datatype of answer: Double
               "max" -> 0.0, // Datatype of answer: Double
@@ -90,8 +88,9 @@ object Predictor extends App {
           ),
 
           "Q2.3.5" -> Map(
-            "MemoryRequiredToStoreSimilarityComputationsAsFunctionOfU" -> "Provide formula on report", // Do not modify this line!
-            "TotalBytesToStoreNonZeroSimilarityComputationsForWorkingDataset" -> 0 // Datatype of answer: Int
+            // Provide the formula that computes the amount of memory for storing all S(u,v)
+            // as a function of U in the report.
+            "TotalBytesToStoreNonZeroSimilarityComputationsForU1BaseDataset" -> 0 // Datatype of answer: Int
           ),
 
           "Q2.3.6" -> Map(
@@ -100,8 +99,9 @@ object Predictor extends App {
               "max" -> 0.0, // Datatype of answer: Double
               "average" -> 0.0, // Datatype of answer: Double
               "stddev" -> 0.0 // Datatype of answer: Double
-            ),
-            "SimilarityBasedMethodDurationComparisonWithMethodsOfMilestone1" -> "Provide answer on report" // Do not modify this line!
+            )
+            // Discuss about the time difference between the similarity method and the methods
+            // from milestone 1 in the report.
           ),
 
           "Q2.3.7" -> Map(
@@ -111,8 +111,8 @@ object Predictor extends App {
               "average" -> 0.0, // Datatype of answer: Double
               "stddev" -> 0.0 // Datatype of answer: Double
             ),
-            "AverageTimeInMicrosecPerSuv" -> 0, // Datatype of answer: Int
-            "RatioBetweenTimeToComputeSimilarityOverTimeToPredict" -> 0.0 // Datatype of answer: Int
+            "AverageTimeInMicrosecPerSuv" -> 0.0, // Datatype of answer: Double
+            "RatioBetweenTimeToComputeSimilarityOverTimeToPredict" -> 0.0 // Datatype of answer: Double
           )
          )
         json = Serialization.writePretty(answers)
