@@ -8,8 +8,8 @@ import org.apache.log4j.Logger
 import org.apache.log4j.Level
 
 // move Rating def in this file to factorise code
-case class Rating(user: Int, item: Int, rating: Double) 
 
+case class Rating(user: Int, item: Int, rating: Double)
 // create JsonConf with default 'json' field to be able to write the : 'outputAnswers' using implicits in this file.
 class JsonConf(arguments: Seq[String]) extends ScallopConf(arguments) {
   val json = opt[String]()

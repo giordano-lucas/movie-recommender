@@ -36,24 +36,94 @@ object Predictor extends App {
   //val df = train.toDF()
   //************************************************
   val h = Helper(train)
+  
+  def scale_rating(data:RDD[Rating]) =
+    data.map(r => (r.user,r))
+        .join(h.user_ratings).values
+        .map {case (r,ru) => Rating(r.user,r.item, (r.rating - ru)/Helper.scale(r.rating,ru))}
 
-
+  //************************************************
   // 2.1 Preprocessing Ratings
+  val scaled_train  = scale_rating(train)
+  def l2_norm[T <: Iterable[Rating]] (rs:T) = math.sqrt(rs.map(r => r.rating * r.rating).sum / rs.size.toDouble)
+  val prep_ratings = scaled_train.groupBy(_.user)  // groupby userId
+                          .flatMap {            // each Rating will be mapped to a new Rating with scaled rating 
+                            case (_,rs) => rs.map(r => Rating(r.user,r.item, r.rating * l2_norm(rs)))
+                            }   // mean of ratings
+  //************************************************
+  // cosine similarity
+  val cosSim = prep_ratings.map(r => (r.item,r))
+              .groupByKey()
+              .flatMap{case (_,us) => 
+                for {
+                  Rating(u,_,ru) <- us
+                  Rating(v,_,rv) <- us
+                  if (u != v)
+                  } yield ((u,v), ru * rv)
+              }.reduceByKey(_ + _)
+              .map{case ((u,v),sim) => (u,(v,sim))}
+  //val users = prep_ratings.map(_.user).distinct
+  //val all_user_pairs = (users cartesian users).map((_,None))
+  //val allcosSim:RDD[(Int,(Int,Double))] = (cosSim rightOuterJoin all_user_pairs).map {case ((u,v),(opt_sim,_)) => (u,(v,opt_sim.getOrElse(0)))}
   
-  
+  //************************************************
+  // user-specific weighted-sum deviation for all items
+  def userItemDeviation(data:RDD[Rating],similarity:RDD[(Int,(Int,Double))]) = {
+      val prep_train_join = scaled_train
+            .map {case Rating(v,i,r) => ((v,i),r)}
 
-  def cosinePred = test.map(r => (r.user,r))                         // format pair for join on users
-                        .join(h.user_ratings)                   // first join on ratings
-                        .map {case (u,(r,ru)) => (r.item, (u,ru, r.rating))} // format pair for join on items
-                        .leftOuterJoin(h.avgItemDev).values            // perform left join to catch items without rating in train set.
-                        .map {case ((u,ru,r),opt_ri) =>                  // compute baseline prediction    
-                          (r, (opt_ri map { mapDev => Helper.baselinePrediction(ru,mapDev(u))} getOrElse h.globalAvgRating))
-                        } // Note: output gloabal average if no item rating is available  
+      data.map(r => (r.user,r))
+            .join(similarity).values
+            .map{case (Rating(u,i,_),(v,sim)) => ((v,i),(u,sim))}
+            //.leftOuterJoin(prep_train_join)
+            //.map{case ((v,i),((u,sim),optr)) => ((u,i),(optr.getOrElse(0.0) * sim, sim.abs))}
+            .join(prep_train_join)
+            .map{case ((v,i),((u,sim),r)) => ((u,i),(r * sim, sim.abs))}
+            //.map{case (Rating(u,i,_),(v,sim)) => ((u,i),(r * sim, sim.abs))}
+            .reduceByKey {case ((num1,den1),(num2,den2)) =>((num1+num2),(den1 + den2))}
+            .mapValues {case (num,den) => num / den}  
+    }
+  var cos_dev = userItemDeviation(test,cosSim)
+  
+  def predict(dev:RDD[((Int,Int),Double)]):RDD[(Double, Double)] = 
+                   test.map(r => ((r.user,r.item),r.rating))          // format pair for join on both item and users
+                       .leftOuterJoin(dev)                   // perform left join to catch items without rating in train set and get item dev
+                       .map{case ((u,_),value) => (u,value)}          // format pair for join on users
+                       .join(h.user_ratings).values                   // then join on user avg ratings
+                       .map{case ((r,opt_riu),ru) =>                  // compute baseline prediction    
+                          (r, (opt_riu.map{Helper.baselinePrediction(ru,_)}.getOrElse(h.globalAvgRating)))
+                        } // Note: output gloabal average if no item rating is available  */
+                      
   // report mae
   def mae(rdd: RDD[(Double,Double)]) =  // mean average error function
     rdd.map{ case (rat, pred) => (rat - pred).abs}.mean()
   // Question 2.3.1.
-  val cosine_mae = mae(cosinePred)
+  val cosine_mae = mae(predict(cos_dev))
+  // Question 2.3.2.
+  def jaccard(a:Set[Int],b:Set[Int]):Double = {
+    val inter = (a & b).size
+    if (a.isEmpty || b.isEmpty) 0
+    else inter.toDouble / (a.size + b.size - inter)
+  }
+  val user_set   = scaled_train.groupBy(_.user).mapValues(_.map(_.item).toSet).cache()
+  val jaccardSim = (user_set cartesian user_set)
+                      .filter {case ((u,_),(v,_))=> u!=v}
+                      .map {case  ((u,a),(v,b)) => (u,(v,jaccard(a,b)))}
+  val jaccard_mae = mae(predict(userItemDeviation(test,jaccardSim)))
+  // Question 2.3.3.
+  val number_user = train.groupBy(_.user).keys.count().toInt
+  val nbSimComputations = (number_user * (number_user - 1)) // ??????? / 2
+  // Question 2.3.4.
+  val multiplications = prep_ratings.map(r => (r.item,r))
+              .groupByKey()
+              .flatMap{case (_,us) => 
+                for {
+                  Rating(u,_,ru) <- us
+                  Rating(v,_,rv) <- us
+                  if (u != v)
+                  } yield ((u,v), 1)
+              }.reduceByKey(_ + _).values
+  
   // **********************************************************************************************
   // **********************************************************************************************
   // **********************************************************************************************
@@ -65,14 +135,14 @@ object Predictor extends App {
           ),
 
           "Q2.3.2" -> Map(
-            "JaccardMae" -> 0.0, // Datatype of answer: Double
-            "JaccardMinusCosineDifference" -> 0.0 // Datatype of answer: Double
+            "JaccardMae" -> jaccard_mae, // Datatype of answer: Double
+            "JaccardMinusCosineDifference" -> (jaccard_mae-cosine_mae) // Datatype of answer: Double
           ),
 
           "Q2.3.3" -> Map(
             // Provide the formula that computes the number of similarity computations
             // as a function of U in the report.
-            "NumberOfSimilarityComputationsForU1BaseDataset" -> 0 // Datatype of answer: Int
+            "NumberOfSimilarityComputationsForU1BaseDataset" -> nbSimComputations // Datatype of answer: Int
           ),
 
           "Q2.3.4" -> Map(
