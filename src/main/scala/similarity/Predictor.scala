@@ -1,70 +1,67 @@
 package similarity
 
-import org.rogach.scallop._
-import org.json4s.jackson.Serialization
+import customFiles._
 import org.apache.spark.rdd.RDD
+import scala.collection.immutable.TreeSet
 
-import org.apache.spark.sql.SparkSession
-import org.apache.log4j.Logger
-import org.apache.log4j.Level
-
-class Conf(arguments: Seq[String]) extends ScallopConf(arguments) {
+class Conf(arguments: Seq[String]) extends JsonConf(arguments) {
   val train = opt[String](required = true)
   val test = opt[String](required = true)
-  val json = opt[String]()
   verify()
 }
 
-case class Rating(user: Int, item: Int, rating: Double)
-
 object Predictor extends App {
   // Remove these lines if encountering/debugging Spark
-  Logger.getLogger("org").setLevel(Level.OFF)
-  Logger.getLogger("akka").setLevel(Level.OFF)
-  val spark = SparkSession.builder()
-    .master("local[1]")
-    .getOrCreate()
-  spark.sparkContext.setLogLevel("ERROR")
+  implicit val spark = Setup.initialise
+  implicit val conf  = new Conf(args) 
 
   println("")
   println("******************************************************")
-
-  var conf = new Conf(args)
   println("Loading training data from: " + conf.train())
   val trainFile = spark.sparkContext.textFile(conf.train())
-  val train = trainFile.map(l => {
-      val cols = l.split("\t").map(_.trim)
-      Rating(cols(0).toInt, cols(1).toInt, cols(2).toDouble)
-  })
+  val train     = Setup.readFile(trainFile)
   assert(train.count == 80000, "Invalid training data")
 
   println("Loading test data from: " + conf.test())
   val testFile = spark.sparkContext.textFile(conf.test())
-  val test = testFile.map(l => {
-      val cols = l.split("\t").map(_.trim)
-      Rating(cols(0).toInt, cols(1).toInt, cols(2).toDouble)
-  })
-  assert(test.count == 20000, "Invalid test data")
+  val test     = Setup.readFile(testFile)
 
-  // Save answers as JSON
-  def printToFile(content: String,
-                  location: String = "./answers.json") =
-    Some(new java.io.PrintWriter(location)).foreach{
-      f => try{
-        f.write(content)
-      } finally{ f.close }
-  }
-  conf.json.toOption match {
-    case None => ;
-    case Some(jsonFile) => {
-      var json = "";
-      {
-        // Limiting the scope of implicit formats with {}
-        implicit val formats = org.json4s.DefaultFormats
-        val answers: Map[String, Any] = Map(
+  // **********************************************************************************************
+  // **********************************************************************************************
+  // **********************************************************************************************
+
+  //val sqlContext = new org.apache.spark.sql.SQLContext(spark.sparkContext)
+  // this is used to implicitly convert an RDD to a DataFrame.
+  //import sqlContext.implicits._
+  //val df = train.toDF()
+  //************************************************
+  val h = Helper(train)
+
+
+  // 2.1 Preprocessing Ratings
+  
+  
+
+  def cosinePred = test.map(r => (r.user,r))                         // format pair for join on users
+                        .join(h.user_ratings)                   // first join on ratings
+                        .map {case (u,(r,ru)) => (r.item, (u,ru, r.rating))} // format pair for join on items
+                        .leftOuterJoin(h.avgItemDev).values            // perform left join to catch items without rating in train set.
+                        .map {case ((u,ru,r),opt_ri) =>                  // compute baseline prediction    
+                          (r, (opt_ri map { mapDev => Helper.baselinePrediction(ru,mapDev(u))} getOrElse h.globalAvgRating))
+                        } // Note: output gloabal average if no item rating is available  
+  // report mae
+  def mae(rdd: RDD[(Double,Double)]) =  // mean average error function
+    rdd.map{ case (rat, pred) => (rat - pred).abs}.mean()
+  // Question 2.3.1.
+  val cosine_mae = mae(cosinePred)
+  // **********************************************************************************************
+  // **********************************************************************************************
+  // **********************************************************************************************
+
+  Setup.outputAnswers(Map(
           "Q2.3.1" -> Map(
-            "CosineBasedMae" -> 0.0, // Datatype of answer: Double
-            "CosineMinusBaselineDifference" -> 0.0 // Datatype of answer: Double
+            "CosineBasedMae" -> cosine_mae, // Datatype of answer: Double
+            "CosineMinusBaselineDifference" -> (cosine_mae-0.7669)// Datatype of answer: Double
           ),
 
           "Q2.3.2" -> Map(
@@ -115,15 +112,6 @@ object Predictor extends App {
             "RatioBetweenTimeToComputeSimilarityOverTimeToPredict" -> 0.0 // Datatype of answer: Double
           )
          )
-        json = Serialization.writePretty(answers)
-      }
-
-      println(json)
-      println("Saving answers in: " + jsonFile)
-      printToFile(json, jsonFile)
-    }
-  }
-
-  println("")
-  spark.close()
+    )
+  Setup.terminate
 }
