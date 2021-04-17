@@ -1,6 +1,6 @@
-name := "m1_yourid"
+name := "m2_284219"
 version := "1.0"
-maintainer := "your.name@epfl.ch"
+maintainer := "lucas.giordano@epfl.ch"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.0" % Test
 libraryDependencies += "org.rogach" %% "scallop" % "4.0.2"

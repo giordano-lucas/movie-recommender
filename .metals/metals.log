@@ -5967,3 +5967,1342 @@ WARNING: String index out of range: -46
 something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in Set[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 5080, 5080, 5088)
 Apr 17, 2021 10:12:43 AM scala.meta.internal.pc.CompletionProvider expected$1
 WARNING: String index out of range: -1
+Apr 17, 2021 10:29:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in (Int, Double)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 4315, 4315, 4327)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in (Int, Double)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 4315, 4315, 4327)
+Apr 17, 2021 10:38:51 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 12601
+Apr 17, 2021 10:41:15 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 12945
+Apr 17, 2021 10:51:30 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13404
+Apr 17, 2021 10:52:03 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13431
+Apr 17, 2021 10:52:10 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:12 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:12 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13458
+Apr 17, 2021 10:52:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13488
+Apr 17, 2021 10:52:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:41 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:42 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:43 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 36 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 36 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 36 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:43 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:44 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:45 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:47 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:52:48 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:00 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:12 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 38 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:24 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 23 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 23 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 23 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:26 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:26 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 37 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:28 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:30 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 10 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 10 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 10 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:31 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 10 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 10 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 10 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:32 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 16 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 16 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 16 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.IllegalArgumentException: 16 is not a valid line number, allowed [0..2]
+java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: 16 is not a valid line number, allowed [0..2]
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 16 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:200)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$5(Trees.scala:71)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:70)
+	at scala.meta.internal.metals.codeactions.InsertInferredType.$anonfun$contribute$1(InsertInferredType.scala:80)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Apr 17, 2021 10:53:46 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13599
+Apr 17, 2021 10:55:48 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13682
+Apr 17, 2021 10:55:56 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13696
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2804, 2804, 2819)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2817)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 2816)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 9873)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2795, 2795, 9873)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in (Int, Double)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2804, 2804, 2816)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in Iterable[customFiles.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2843, 2843, 2859)
+Apr 17, 2021 11:00:41 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14091
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in org.apache.spark.rdd.RDD[customFiles.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 2841, 2841, 2852)
+Apr 17, 2021 11:05:02 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14186
+Apr 17, 2021 11:05:05 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14192
+Apr 17, 2021 11:07:46 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14245
+Apr 17, 2021 11:08:13 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14331
+Apr 17, 2021 11:09:49 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14341
+Apr 17, 2021 11:09:56 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14351
+[0m2021.04.17 12:50:13 INFO  time: code lens generation in 2.51s[0m
+[0m2021.04.17 12:50:13 INFO  time: code lens generation in 6.63s[0m
+[0m2021.04.17 12:50:13 INFO  time: code lens generation in 9.27s[0m
+Apr 17, 2021 12:50:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14622
+Apr 17, 2021 1:02:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14776
+Apr 17, 2021 1:04:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 14925
+Apr 17, 2021 1:38:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15515
+Apr 17, 2021 1:38:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15524
+Apr 17, 2021 1:39:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15536
+Apr 17, 2021 1:39:11 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15558
+Apr 17, 2021 1:39:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15571
+Apr 17, 2021 1:39:19 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15583
+Apr 17, 2021 1:39:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15597
+Apr 17, 2021 1:39:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15609
+Apr 17, 2021 1:39:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15615
+Apr 17, 2021 1:39:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15621
+Apr 17, 2021 1:39:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15641
+Apr 17, 2021 1:39:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15648
+Apr 17, 2021 1:39:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15656
+Apr 17, 2021 1:40:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15669
+Apr 17, 2021 1:40:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15729
+Apr 17, 2021 1:40:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15737
+Apr 17, 2021 3:28:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15764
+Apr 17, 2021 4:33:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15773
+Apr 17, 2021 4:34:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15797
+[0m2021.04.17 16:36:49 INFO  time: code lens generation in 1.28s[0m
+Apr 17, 2021 4:39:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15897
+Apr 17, 2021 4:39:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15905
+Apr 17, 2021 4:39:51 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15915
+Apr 17, 2021 4:39:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15921
+Apr 17, 2021 4:39:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15928
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/customFiles/Helper.scala in Iterable[customFiles.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/customFiles/Helper.scala, 1905, 1905, 1921)
+Apr 17, 2021 4:41:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16179
+Apr 17, 2021 4:42:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16194
+Apr 17, 2021 4:42:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16200
+Apr 17, 2021 4:42:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16206
+Apr 17, 2021 4:43:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16497
+Apr 17, 2021 4:43:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16503
+Apr 17, 2021 4:43:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16518
+Apr 17, 2021 4:43:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16525
+Apr 17, 2021 4:44:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16556
+Apr 17, 2021 4:44:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16563
+Apr 17, 2021 4:44:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16570
+Apr 17, 2021 4:44:51 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16580
+Apr 17, 2021 4:44:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16586
+Apr 17, 2021 4:45:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16730
+Apr 17, 2021 4:45:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16736
+Apr 17, 2021 4:45:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16744
+Apr 17, 2021 4:46:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16776
+Apr 17, 2021 4:46:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16782
+Apr 17, 2021 4:46:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16802
+Apr 17, 2021 4:46:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16809
+Apr 17, 2021 4:46:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16823
+Apr 17, 2021 4:47:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16851
+Apr 17, 2021 4:47:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16857
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala in Iterable[customFiles.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/similarity/Predictor.scala, 1598, 1598, 1614)
+Apr 17, 2021 7:15:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17002
+Apr 17, 2021 7:16:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17025
+Apr 17, 2021 7:16:11 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17031
+Apr 17, 2021 7:16:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17039
+Apr 17, 2021 7:16:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17045
+Apr 17, 2021 7:16:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17051
+Apr 17, 2021 7:16:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17058
+Apr 17, 2021 7:16:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17064
+Apr 17, 2021 7:16:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17069
+Apr 17, 2021 7:16:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17075
+Apr 17, 2021 7:16:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17088
+Apr 17, 2021 7:17:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17094
+Apr 17, 2021 7:17:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17130
+Apr 17, 2021 7:17:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17151
+Apr 17, 2021 7:17:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17155
+Apr 17, 2021 7:17:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17156
+Apr 17, 2021 7:17:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17158
+Apr 17, 2021 7:17:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17159
+Apr 17, 2021 7:21:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17234
+Apr 17, 2021 7:22:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17242
+Apr 17, 2021 7:23:33 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -34
+Apr 17, 2021 7:23:48 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -34
+Apr 17, 2021 7:23:50 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -34
+Apr 17, 2021 7:23:57 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -34
+Apr 17, 2021 7:23:57 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -34
+Apr 17, 2021 7:23:59 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -34
+Apr 17, 2021 7:25:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17454
+Apr 17, 2021 7:26:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17480
+Apr 17, 2021 7:26:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17486
+Apr 17, 2021 7:26:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17499
+Apr 17, 2021 7:26:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17505
+Apr 17, 2021 7:27:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17551
+Apr 17, 2021 7:27:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17565
+Apr 17, 2021 7:29:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17710
+Apr 17, 2021 7:29:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17712
+Apr 17, 2021 7:30:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17833
+Apr 17, 2021 7:32:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18053
+Apr 17, 2021 7:32:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18059
+Apr 17, 2021 7:32:20 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+Apr 17, 2021 7:32:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18108
+Apr 17, 2021 7:32:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18142
+Apr 17, 2021 7:33:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18222
+Apr 17, 2021 7:33:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18229
+Apr 17, 2021 7:34:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18243
+Apr 17, 2021 7:34:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18266
+Apr 17, 2021 7:34:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18272
+Apr 17, 2021 7:34:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18279
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1425, 1425, 3700)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1425, 1425, 1443)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1425, 1425, 1445)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1425, 1425, 1438)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1425, 1425, 1440)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1434, 1434, 1448)
+Apr 17, 2021 7:44:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18753
+Apr 17, 2021 7:48:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18767
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Int, Map[Int,Double])]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1533, 1533, 1559)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2085)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2085)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2085)
+Apr 17, 2021 7:49:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18885
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 1634)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 1634)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1617, 1617, 1632)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1617, 1617, 1632)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Iterable[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2102)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Iterable[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2102)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1617, 1617, 1632)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Iterable[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2102)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Iterable[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1609, 1609, 2102)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1617, 1617, 1633)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1617, 1617, 1633)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1678, 1678, 1693)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1678, 1678, 1693)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1657, 1657, 1674)
+Apr 17, 2021 7:51:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 19133
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1340, 1340, 1360)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1340, 1340, 1353)
+Apr 17, 2021 8:17:01 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1340, 1340, 1354)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1340, 1340, 1355)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1349, 1349, 1363)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2091, 2091, 2107)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2081, 2081, 2097)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2081, 2081, 2097)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2081, 2081, 2097)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2081, 2081, 2097)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2081, 2081, 2097)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2081, 2081, 2097)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2089, 2089, 2106)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[A]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1901, 1901, 1908)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[A]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1772, 1772, 1783)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[A]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1771, 1771, 1782)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[A]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1771, 1771, 1782)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Ordering[B]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1849, 1849, 1860)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[A]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1871, 1871, 1878)
+Apr 17, 2021 8:23:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20598
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[A,(B, Int)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1773, 1773, 1787)
+Apr 17, 2021 8:23:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20679
+Apr 17, 2021 8:23:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20734
+Apr 17, 2021 8:24:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20794
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, Int)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2146, 2146, 2158)
+Apr 17, 2021 8:26:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 21060
+Apr 17, 2021 8:28:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 21387
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Int, Map[Int,(Double, Int)])]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2089, 2089, 2121)
+Apr 17, 2021 8:32:52 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+Apr 17, 2021 8:32:52 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: null
+java.lang.NullPointerException
+	at scala.reflect.internal.Definitions$DefinitionsClass.isByNameParamType(Definitions.scala:417)
+	at scala.reflect.internal.TreeInfo.isStableIdent(TreeInfo.scala:140)
+	at scala.reflect.internal.TreeInfo.isStableIdentifier(TreeInfo.scala:113)
+	at scala.reflect.internal.TreeInfo.isPath(TreeInfo.scala:102)
+	at scala.reflect.internal.TreeInfo.admitsTypeSelection(TreeInfo.scala:158)
+	at scala.tools.nsc.interactive.Global.stabilizedType(Global.scala:959)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:807)
+	at scala.meta.internal.pc.HoverProvider.typedHoverTreeAt(HoverProvider.scala:239)
+	at scala.meta.internal.pc.HoverProvider.hover(HoverProvider.scala:26)
+
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 5724)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2724)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2717)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2719)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2718)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2717)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2720)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 5730)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 2729)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 2722)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 2724)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 2727)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 2727)
+Apr 17, 2021 8:34:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22177
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[List[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2708, 2708, 2728)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2715, 2715, 2727)
+Apr 17, 2021 8:36:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22679
+Apr 17, 2021 8:37:17 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22717
+Apr 17, 2021 8:37:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22731
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[knn.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2045, 2045, 2061)
+Apr 17, 2021 8:46:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22842
+Apr 17, 2021 8:46:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22848
+Apr 17, 2021 8:46:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22862
+Apr 17, 2021 8:46:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22867
+Apr 17, 2021 8:47:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22963
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[knn.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2009, 2009, 2020)
+Apr 17, 2021 8:48:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 23059
+Apr 17, 2021 8:50:07 PM scala.meta.internal.pc.completions.Completions completionPosition
+SEVERE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.MetalsGlobal.metalsSeenFromType(MetalsGlobal.scala:734)
+	at scala.meta.internal.pc.completions.MatchCaseCompletions$CaseKeywordCompletion.<init>(MatchCaseCompletions.scala:49)
+	at scala.meta.internal.pc.completions.Completions.fromIdentApply$1(Completions.scala:423)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe(Completions.scala:443)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe$(Completions.scala:409)
+	at scala.meta.internal.pc.MetalsGlobal.completionPositionUnsafe(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.completions.Completions.completionPosition(Completions.scala:401)
+	at scala.meta.internal.pc.completions.Completions.completionPosition$(Completions.scala:386)
+	at scala.meta.internal.pc.MetalsGlobal.completionPosition(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:446)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$complete$1(ScalaPresentationCompiler.scala:124)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$withInterruptableCompiler$1(CompilerAccess.scala:87)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$onCompilerJobQueue$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:103)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Apr 17, 2021 8:50:07 PM scala.meta.internal.pc.completions.Completions completionPosition
+SEVERE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.MetalsGlobal.metalsSeenFromType(MetalsGlobal.scala:734)
+	at scala.meta.internal.pc.completions.MatchCaseCompletions$CaseKeywordCompletion.<init>(MatchCaseCompletions.scala:49)
+	at scala.meta.internal.pc.completions.Completions.fromIdentApply$1(Completions.scala:423)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe(Completions.scala:443)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe$(Completions.scala:409)
+	at scala.meta.internal.pc.MetalsGlobal.completionPositionUnsafe(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.completions.Completions.completionPosition(Completions.scala:401)
+	at scala.meta.internal.pc.completions.Completions.completionPosition$(Completions.scala:386)
+	at scala.meta.internal.pc.MetalsGlobal.completionPosition(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:446)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$complete$1(ScalaPresentationCompiler.scala:124)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$withInterruptableCompiler$1(CompilerAccess.scala:87)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$onCompilerJobQueue$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:103)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Apr 17, 2021 8:52:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 23497
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[knn.Rating]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2333, 2333, 2349)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2011, 2011, 2273)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2011, 2011, 2024)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2011, 2011, 2026)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2011, 2011, 2019)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[Int]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2011, 2011, 2021)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2015, 2015, 2029)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2015, 2015, 2031)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2037)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2039)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2032)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2034)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2035)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2036)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2020, 2020, 2037)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2028, 2028, 2045)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,(Double, Int)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2403, 2403, 2424)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[List[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2995, 2995, 3015)
+Apr 17, 2021 9:01:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 24273
+Apr 17, 2021 9:01:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 24282
+Apr 17, 2021 9:01:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 24288
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, Double)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3923, 3923, 3943)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, <error>)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3926, 3926, 3951)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, <error>)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3926, 3926, 3951)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, <error>)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3926, 3926, 3951)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, <error>)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3926, 3926, 6224)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, <error>)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3926, 3926, 6224)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3930, 3930, 3950)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3938, 3938, 3949)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3938, 3938, 3949)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3938, 3938, 3949)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3938, 3938, 3949)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3938, 3938, 3949)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, List[Double])RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3930, 3930, 3950)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, List[Double])RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3930, 3930, 3950)
+Apr 17, 2021 9:02:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 24470
+Apr 17, 2021 9:04:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 24824
+Apr 17, 2021 9:05:48 PM scala.meta.internal.pc.completions.Completions completionPosition
+SEVERE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.MetalsGlobal.metalsSeenFromType(MetalsGlobal.scala:734)
+	at scala.meta.internal.pc.completions.MatchCaseCompletions$CaseKeywordCompletion.<init>(MatchCaseCompletions.scala:49)
+	at scala.meta.internal.pc.completions.Completions.fromIdentApply$1(Completions.scala:423)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe(Completions.scala:443)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe$(Completions.scala:409)
+	at scala.meta.internal.pc.MetalsGlobal.completionPositionUnsafe(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.completions.Completions.completionPosition(Completions.scala:401)
+	at scala.meta.internal.pc.completions.Completions.completionPosition$(Completions.scala:386)
+	at scala.meta.internal.pc.MetalsGlobal.completionPosition(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:446)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$complete$1(ScalaPresentationCompiler.scala:124)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$withInterruptableCompiler$1(CompilerAccess.scala:87)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$onCompilerJobQueue$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:103)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Apr 17, 2021 9:05:48 PM scala.meta.internal.pc.completions.Completions completionPosition
+SEVERE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.MetalsGlobal.metalsSeenFromType(MetalsGlobal.scala:734)
+	at scala.meta.internal.pc.completions.MatchCaseCompletions$CaseKeywordCompletion.<init>(MatchCaseCompletions.scala:49)
+	at scala.meta.internal.pc.completions.Completions.fromIdentApply$1(Completions.scala:423)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe(Completions.scala:443)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe$(Completions.scala:409)
+	at scala.meta.internal.pc.MetalsGlobal.completionPositionUnsafe(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.completions.Completions.completionPosition(Completions.scala:401)
+	at scala.meta.internal.pc.completions.Completions.completionPosition$(Completions.scala:386)
+	at scala.meta.internal.pc.MetalsGlobal.completionPosition(MetalsGlobal.scala:30)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:446)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$complete$1(ScalaPresentationCompiler.scala:124)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$withInterruptableCompiler$1(CompilerAccess.scala:87)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$onCompilerJobQueue$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:103)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[(Double, List[Double])]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3931, 3931, 3957)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 4424, 4424, 6339)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 4424, 4424, 4438)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 4424, 4424, 4431)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 4424, 4424, 4432)
+Apr 17, 2021 9:07:44 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 4424, 4424, 4433)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 4424, 4424, 4436)
+Apr 17, 2021 9:08:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 25558
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3845)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3186)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3734)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3188)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3181)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3182)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3183)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3184)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3185)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in org.apache.spark.rdd.RDD[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3173, 3173, 3186)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3177, 3177, 3194)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3185, 3185, 6325)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3185, 3185, 3199)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3185, 3185, 3192)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3185, 3185, 3193)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3185, 3185, 3194)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3185, 3185, 3197)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[Int,(Double, Int)]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1894, 1894, 1915)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[A]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1907, 1907, 1918)
+Apr 17, 2021 9:22:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 26529
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1911)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1904)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1905)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1906)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1907)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1908)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Iterable[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1891, 1891, 1909)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Double, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1900, 1900, 1917)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, Double)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1900, 1900, 1912)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Ordering[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 1936, 1936, 1952)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2008, 2008, 2015)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2008, 2008, 2024)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2008, 2008, 2017)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2013, 2013, 2027)
+Apr 17, 2021 9:24:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 26959
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in (Int, <error>)RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 2032, 2032, 2046)
+Apr 17, 2021 9:26:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 27174
+Apr 17, 2021 9:26:33 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -1
+Apr 17, 2021 9:31:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 27571
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Option[List[Double]]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3680, 3680, 3700)
+Apr 17, 2021 9:38:51 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -1
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5146, 5146, 5158)
+Apr 17, 2021 9:39:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28290
+Apr 17, 2021 9:39:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28316
+Apr 17, 2021 9:40:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28488
+Apr 17, 2021 9:44:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28765
+Apr 17, 2021 9:49:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28977
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[<error>,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5225, 5225, 5244)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[<error>,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5225, 5225, 5237)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[<error>,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5225, 5225, 5238)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[<error>,<error>]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5225, 5225, 5239)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in Map[<error>,Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5225, 5225, 5242)
+Apr 17, 2021 9:50:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 29279
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3598, 3598, 3610)
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 3598, 3598, 3610)
+Apr 17, 2021 10:05:22 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -1
+Apr 17, 2021 10:10:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30181
+Apr 17, 2021 10:14:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30548
+Apr 17, 2021 10:21:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30782
+Apr 17, 2021 10:21:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30784
+Apr 17, 2021 10:23:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30994
+Apr 17, 2021 10:23:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31040
+Apr 17, 2021 10:24:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31102
+Apr 17, 2021 10:24:17 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31157
+Apr 17, 2021 10:25:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31244
+Apr 17, 2021 10:25:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31353
+Apr 17, 2021 10:25:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31388
+Apr 17, 2021 10:27:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31554
+Apr 17, 2021 10:30:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31878
+Apr 17, 2021 10:30:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31904
+Apr 17, 2021 11:09:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31925
+Apr 17, 2021 11:10:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31936
+Apr 17, 2021 11:13:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32284
+Apr 17, 2021 11:14:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32295
+Apr 17, 2021 11:14:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32301
+Apr 17, 2021 11:14:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32307
+Apr 17, 2021 11:16:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32313
+Apr 17, 2021 11:16:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32327
+Apr 17, 2021 11:16:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32346
+Apr 17, 2021 11:17:19 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32359
+Apr 17, 2021 11:17:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32376
+Apr 17, 2021 11:17:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32391
+something's wrong: no file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala in List[Double]RangePosition(file:///Users/lucas/Desktop/EPFL/Master/SDS/cs449-Template-M2/src/main/scala/knn/Predictor.scala, 5162, 5162, 5174)
+Apr 17, 2021 11:18:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32543
+Apr 17, 2021 11:19:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32558
+Apr 17, 2021 11:29:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 32986
+[0m2021.04.17 23:29:33 INFO  time: code lens generation in 2.94s[0m

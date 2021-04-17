@@ -2,7 +2,6 @@ package similarity
 
 import customFiles._
 import org.apache.spark.rdd.RDD
-import scala.collection.immutable.TreeSet
 
 class Conf(arguments: Seq[String]) extends JsonConf(arguments) {
   val train = opt[String](required = true)
@@ -35,57 +34,25 @@ object Predictor extends App {
   //import sqlContext.implicits._
   //val df = train.toDF()
   //************************************************
-  var h = Helper(train)
-
-  def scale_rating(data:RDD[Rating]) =
-    data.map(r => (r.user,r))
-        .join(h.user_ratings).values
-        .map {case (r,ru) => Rating(r.user,r.item, (r.rating - ru)/Helper.scale(r.rating,ru))}
-
+  var h = Helper(train,test)
   //************************************************
-  // 2.1 Preprocessing Ratings
-  val scaled_train  = scale_rating(train).cache()
-  def l2_norm[T <: Iterable[Rating]] (rs:T) = math.sqrt(rs.map(r => r.rating * r.rating).sum / rs.size.toDouble)
-  val prep_ratings = scaled_train.groupBy(_.user)  // groupby userId
-                          .flatMap {               // each Rating will be mapped to a new Rating with scaled rating 
-                            case (_,rs) => rs.map(r => Rating(r.user,r.item, r.rating * l2_norm(rs)))
-                            }                      // mean of ratings
   
-  //************************************************
-  // cosine similarity
-  val cosSim = prep_ratings.map(r => (r.item,r))
-              .groupByKey()
-              .flatMap{case (_,us) =>
-                for {
-                  Rating(u,_,ru) <- us
-                  Rating(v,_,rv) <- us
-                  if (u != v)
-                  } yield ((u,v), ru * rv)
-              }.reduceByKey(_ + _)
-              .map{case ((u,v),sim) => (u,(v,sim))}
-
-  //val users = prep_ratings.map(_.user).distinct
-  //val all_user_pairs = (users cartesian users).map((_,None))
-  //val allcosSim:RDD[(Int,(Int,Double))] = (cosSim rightOuterJoin all_user_pairs).map {case ((u,v),(opt_sim,_)) => (u,(v,opt_sim.getOrElse(0)))}
-
-  //************************************************
-  // user-specific weighted-sum deviation for all items
-  def userItemDeviation(data:RDD[Rating],similarity:RDD[(Int,(Int,Double))]) = {
-      val prep_train_join = scaled_train
-            .map {case Rating(v,i,r) => ((v,i),r)}
-
+  def userItemDeviation(data:RDD[Rating],similarity:RDD[(Int,Map[Int,Double])]) = {
+      def inner(us:Iterable[Rating], mapSim:Map[Int,Double]) = {
+        val (num:Double,den:Double) = us.foldLeft((0.0,0.0)) {
+          case ((num,den),Rating(v,_,r)) => (num + r * mapSim(v), den + mapSim(v).abs)
+        }
+        num / den         
+      }  
       data.map(r => (r.user,r))
             .join(similarity).values
-            .map{case (Rating(u,i,_),(v,sim)) => ((v,i),(u,sim))}
-            //.leftOuterJoin(prep_train_join)
-            //.map{case ((v,i),((u,sim),optr)) => ((u,i),(optr.getOrElse(0.0) * sim, sim.abs))}
-            .join(prep_train_join)
-            .map{case ((v,i),((u,sim),r)) => ((u,i),(r * sim, sim.abs))}
-            .reduceByKey {case ((num1,den1),(num2,den2)) =>((num1+num2),(den1 + den2))}
-            .mapValues {case (num,den) => num / den}  
-    }
+            .map{case (Rating(u,i,_),mapSim) => (i,(u,mapSim))}
+            .join(h.scaled_train.groupBy(_.item))
+            .map{case (i,((u,mapSim),us)) => ((u,i),inner(us,mapSim))}
+    } 
+  val cosSim  = h.cosSim.groupByKey().mapValues(_.toMap.withDefaultValue(0.0))
   def cos_dev = userItemDeviation(test,cosSim)
-  
+
   def predict(dev:RDD[((Int,Int),Double)]):RDD[(Double, Double)] = 
                    test.map(r => ((r.user,r.item),r.rating))          // format pair for join on both item and users
                        .leftOuterJoin(dev)                            // perform left join to catch items without rating in train set and get item dev
@@ -94,28 +61,28 @@ object Predictor extends App {
                        .map{case ((r,opt_riu),ru) =>                  // compute baseline prediction    
                           (r, (opt_riu.map{Helper.baselinePrediction(ru,_)}.getOrElse(h.globalAvgRating)))
                         } // Note: output gloabal average if no item rating is available  */
-                      
-  // report mae
-  def mae(rdd: RDD[(Double,Double)]) =  // mean average error function
-    rdd.map{ case (rat, pred) => (rat - pred).abs}.mean()
+                     
   // Question 2.3.1.
-  def cosine_mae = mae(predict(cos_dev))
+  def preds = predict(cos_dev)
+  def cosine_mae = Helper.mae(preds)
   // Question 2.3.2.
   def jaccard(a:Set[Int],b:Set[Int]):Double = {
     val inter = (a & b).size
     if (a.isEmpty || b.isEmpty) 0
     else inter.toDouble / (a.size + b.size - inter)
   }
-  val user_set   = scaled_train.groupBy(_.user).mapValues(_.map(_.item).toSet).cache()
+  val user_set   = h.scaled_train.groupBy(_.user).mapValues(_.map(_.item).toSet).cache()
   val jaccardSim = (user_set cartesian user_set)
                       .filter {case ((u,_),(v,_))=> u!=v}
                       .map {case  ((u,a),(v,b)) => (u,(v,jaccard(a,b)))}
-  def jaccard_mae = mae(predict(userItemDeviation(test,jaccardSim)))
+                      .groupByKey().mapValues(_.toMap.withDefaultValue(0.0))
+                      
+  def jaccard_mae = Helper.mae(predict(userItemDeviation(test,jaccardSim)))
   // Question 2.3.3.
   val number_user = train.groupBy(_.user).keys.count().toInt
   val nbSimComputations = (number_user * (number_user - 1)) // ??????? / 2
   // Question 2.3.4.
-  val multiplications = prep_ratings.map(r => (r.item,r))
+  val multiplications = h.prep_ratings.map(r => (r.item,r))
               .groupByKey()
               .flatMap{case (_,us) => 
                 for {
@@ -123,7 +90,13 @@ object Predictor extends App {
                   Rating(v,_,rv) <- us
                   if (u != v)
                   } yield ((u,v), 1)
-              }.reduceByKey(_ + _).values
+              }.reduceByKey(_ + _).values.collect()
+  // Question 2.3.5.
+  val bytesSimilarities = multiplications.size * (64 / 8)
+  // Question 2.3.6.
+  val benchPred = Map[String,Double]().withDefaultValue(0.0)//benchmark(preds.count())
+  // Question 2.3.7.
+  val benchSim  = Map[String,Double]().withDefaultValue(0.0)//benchmark(h.cosSim.count())
   // ***************************************************
                 
   def stats(series:Iterable[Double])(optN:Option[Int] = None):Map[String,Double] = {
@@ -147,53 +120,47 @@ object Predictor extends App {
     stats(series)(Some(epochs))
   }
 
-
   // **********************************************************************************************
   // **********************************************************************************************
   // **********************************************************************************************
 
   Setup.outputAnswers(Map(
           "Q2.3.1" -> Map(
-            "CosineBasedMae" -> 0.0,//cosine_mae, // Datatype of answer: Double
-            "CosineMinusBaselineDifference" -> 0.0//(cosine_mae-0.7669)// Datatype of answer: Double
+            "CosineBasedMae" -> cosine_mae, // Datatype of answer: Double
+            "CosineMinusBaselineDifference" -> (cosine_mae-0.7669)// Datatype of answer: Double
           ),
 
           "Q2.3.2" -> Map(
-            "JaccardMae" -> 0.0,//jaccard_mae, // Datatype of answer: Double
-            "JaccardMinusCosineDifference" -> 0.0//(jaccard_mae-cosine_mae) // Datatype of answer: Double
+            "JaccardMae" -> jaccard_mae, // Datatype of answer: Double
+            "JaccardMinusCosineDifference" -> (jaccard_mae-cosine_mae) // Datatype of answer: Double
           ),
 
           "Q2.3.3" -> Map(
             // Provide the formula that computes the number of similarity computations
             // as a function of U in the report.
-            "NumberOfSimilarityComputationsForU1BaseDataset" -> 0//nbSimComputations // Datatype of answer: Int
+            "NumberOfSimilarityComputationsForU1BaseDataset" -> nbSimComputations // Datatype of answer: Int
           ),
 
           "Q2.3.4" -> Map(
-            "CosineSimilarityStatistics" -> 0.0//stats(multiplications.collect().map(_.toDouble))(None)
+            "CosineSimilarityStatistics" -> stats(multiplications.map(_.toDouble))(None)
           ),
 
           "Q2.3.5" -> Map(
             // Provide the formula that computes the amount of memory for storing all S(u,v)
             // as a function of U in the report.
-            "TotalBytesToStoreNonZeroSimilarityComputationsForU1BaseDataset" -> 0 // Datatype of answer: Int
+            "TotalBytesToStoreNonZeroSimilarityComputationsForU1BaseDataset" -> bytesSimilarities // Datatype of answer: Int
           ),
 
           "Q2.3.6" -> Map(
-            "DurationInMicrosecForComputingPredictions" -> Map(
-              "min" -> 0.0,  // Datatype of answer: Double
-              "max" -> 0.0, // Datatype of answer: Double
-              "average" -> 0.0, // Datatype of answer: Double
-              "stddev" -> 0.0 // Datatype of answer: Double
-            )
+            "DurationInMicrosecForComputingPredictions" -> benchPred
             // Discuss about the time difference between the similarity method and the methods
             // from milestone 1 in the report.
           ),
 
           "Q2.3.7" -> Map(
-            "DurationInMicrosecForComputingSimilarities" -> benchmark(cos_dev.count()),
-            "AverageTimeInMicrosecPerSuv" -> 0.0, // Datatype of answer: Double
-            "RatioBetweenTimeToComputeSimilarityOverTimeToPredict" -> 0.0 // Datatype of answer: Double
+            "DurationInMicrosecForComputingSimilarities" -> benchSim,
+            "AverageTimeInMicrosecPerSuv" -> benchSim("average") / multiplications.size, // Datatype of answer: Double
+            "RatioBetweenTimeToComputeSimilarityOverTimeToPredict" -> benchSim("average") / benchPred("average") // Datatype of answer: Double
           )
          )
     )

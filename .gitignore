@@ -8,3 +8,10 @@ project/target
 src/main/scala/project/
 src/main/scala/target/
 target/
+.vscode/
+.bloop/
+.bsp/
+.metals/
+project/metals.sbt
+project/.bloop
+statistics.json
