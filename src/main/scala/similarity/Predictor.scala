@@ -35,8 +35,8 @@ object Predictor extends App {
   //import sqlContext.implicits._
   //val df = train.toDF()
   //************************************************
-  val h = Helper(train)
-  
+  var h = Helper(train)
+
   def scale_rating(data:RDD[Rating]) =
     data.map(r => (r.user,r))
         .join(h.user_ratings).values
@@ -44,17 +44,18 @@ object Predictor extends App {
 
   //************************************************
   // 2.1 Preprocessing Ratings
-  val scaled_train  = scale_rating(train)
+  val scaled_train  = scale_rating(train).cache()
   def l2_norm[T <: Iterable[Rating]] (rs:T) = math.sqrt(rs.map(r => r.rating * r.rating).sum / rs.size.toDouble)
   val prep_ratings = scaled_train.groupBy(_.user)  // groupby userId
-                          .flatMap {            // each Rating will be mapped to a new Rating with scaled rating 
+                          .flatMap {               // each Rating will be mapped to a new Rating with scaled rating 
                             case (_,rs) => rs.map(r => Rating(r.user,r.item, r.rating * l2_norm(rs)))
-                            }   // mean of ratings
+                            }                      // mean of ratings
+  
   //************************************************
   // cosine similarity
   val cosSim = prep_ratings.map(r => (r.item,r))
               .groupByKey()
-              .flatMap{case (_,us) => 
+              .flatMap{case (_,us) =>
                 for {
                   Rating(u,_,ru) <- us
                   Rating(v,_,rv) <- us
@@ -62,10 +63,11 @@ object Predictor extends App {
                   } yield ((u,v), ru * rv)
               }.reduceByKey(_ + _)
               .map{case ((u,v),sim) => (u,(v,sim))}
+
   //val users = prep_ratings.map(_.user).distinct
   //val all_user_pairs = (users cartesian users).map((_,None))
   //val allcosSim:RDD[(Int,(Int,Double))] = (cosSim rightOuterJoin all_user_pairs).map {case ((u,v),(opt_sim,_)) => (u,(v,opt_sim.getOrElse(0)))}
-  
+
   //************************************************
   // user-specific weighted-sum deviation for all items
   def userItemDeviation(data:RDD[Rating],similarity:RDD[(Int,(Int,Double))]) = {
@@ -79,15 +81,14 @@ object Predictor extends App {
             //.map{case ((v,i),((u,sim),optr)) => ((u,i),(optr.getOrElse(0.0) * sim, sim.abs))}
             .join(prep_train_join)
             .map{case ((v,i),((u,sim),r)) => ((u,i),(r * sim, sim.abs))}
-            //.map{case (Rating(u,i,_),(v,sim)) => ((u,i),(r * sim, sim.abs))}
             .reduceByKey {case ((num1,den1),(num2,den2)) =>((num1+num2),(den1 + den2))}
             .mapValues {case (num,den) => num / den}  
     }
-  var cos_dev = userItemDeviation(test,cosSim)
+  def cos_dev = userItemDeviation(test,cosSim)
   
   def predict(dev:RDD[((Int,Int),Double)]):RDD[(Double, Double)] = 
                    test.map(r => ((r.user,r.item),r.rating))          // format pair for join on both item and users
-                       .leftOuterJoin(dev)                   // perform left join to catch items without rating in train set and get item dev
+                       .leftOuterJoin(dev)                            // perform left join to catch items without rating in train set and get item dev
                        .map{case ((u,_),value) => (u,value)}          // format pair for join on users
                        .join(h.user_ratings).values                   // then join on user avg ratings
                        .map{case ((r,opt_riu),ru) =>                  // compute baseline prediction    
@@ -98,7 +99,7 @@ object Predictor extends App {
   def mae(rdd: RDD[(Double,Double)]) =  // mean average error function
     rdd.map{ case (rat, pred) => (rat - pred).abs}.mean()
   // Question 2.3.1.
-  val cosine_mae = mae(predict(cos_dev))
+  def cosine_mae = mae(predict(cos_dev))
   // Question 2.3.2.
   def jaccard(a:Set[Int],b:Set[Int]):Double = {
     val inter = (a & b).size
@@ -109,7 +110,7 @@ object Predictor extends App {
   val jaccardSim = (user_set cartesian user_set)
                       .filter {case ((u,_),(v,_))=> u!=v}
                       .map {case  ((u,a),(v,b)) => (u,(v,jaccard(a,b)))}
-  val jaccard_mae = mae(predict(userItemDeviation(test,jaccardSim)))
+  def jaccard_mae = mae(predict(userItemDeviation(test,jaccardSim)))
   // Question 2.3.3.
   val number_user = train.groupBy(_.user).keys.count().toInt
   val nbSimComputations = (number_user * (number_user - 1)) // ??????? / 2
@@ -123,35 +124,53 @@ object Predictor extends App {
                   if (u != v)
                   } yield ((u,v), 1)
               }.reduceByKey(_ + _).values
-  
+  // ***************************************************
+                
+  def stats(series:Iterable[Double])(optN:Option[Int] = None):Map[String,Double] = {
+    val n    = (optN getOrElse series.size).toDouble
+    val mean = series.sum/n                           // mean of data
+    val std  = series.map(x=>x*x).sum/n - mean*mean   // std of data 
+    Map("min" -> series.min(Ordering.Double),  // Datatype of answer: Double
+        "max" -> series.max(Ordering.Double),  // Datatype of answer: Double
+        "average" -> mean,                     // Datatype of answer: Double
+        "stddev" -> std)                       // Datatype of answer: Double
+  }
+
+  def benchmark[T](f: => T, epochs: Int = 10):Map[String,Double] = { // note the call by name parameter
+    val series:Seq[Double] =            // series of measurements
+      for {i <- 1 to epochs} yield {    // perform 'epochs' simulations
+        h = Helper(train)               // force recomputation of fields inside helper 
+        val s = System.nanoTime         // record initial time
+        val ret = f                     // perform computation
+        (System.nanoTime-s)/1e3         // compute the actual running time and convert from nano to micro
+      }
+    stats(series)(Some(epochs))
+  }
+
+
   // **********************************************************************************************
   // **********************************************************************************************
   // **********************************************************************************************
 
   Setup.outputAnswers(Map(
           "Q2.3.1" -> Map(
-            "CosineBasedMae" -> cosine_mae, // Datatype of answer: Double
-            "CosineMinusBaselineDifference" -> (cosine_mae-0.7669)// Datatype of answer: Double
+            "CosineBasedMae" -> 0.0,//cosine_mae, // Datatype of answer: Double
+            "CosineMinusBaselineDifference" -> 0.0//(cosine_mae-0.7669)// Datatype of answer: Double
           ),
 
           "Q2.3.2" -> Map(
-            "JaccardMae" -> jaccard_mae, // Datatype of answer: Double
-            "JaccardMinusCosineDifference" -> (jaccard_mae-cosine_mae) // Datatype of answer: Double
+            "JaccardMae" -> 0.0,//jaccard_mae, // Datatype of answer: Double
+            "JaccardMinusCosineDifference" -> 0.0//(jaccard_mae-cosine_mae) // Datatype of answer: Double
           ),
 
           "Q2.3.3" -> Map(
             // Provide the formula that computes the number of similarity computations
             // as a function of U in the report.
-            "NumberOfSimilarityComputationsForU1BaseDataset" -> nbSimComputations // Datatype of answer: Int
+            "NumberOfSimilarityComputationsForU1BaseDataset" -> 0//nbSimComputations // Datatype of answer: Int
           ),
 
           "Q2.3.4" -> Map(
-            "CosineSimilarityStatistics" -> Map(
-              "min" -> 0.0,  // Datatype of answer: Double
-              "max" -> 0.0, // Datatype of answer: Double
-              "average" -> 0.0, // Datatype of answer: Double
-              "stddev" -> 0.0 // Datatype of answer: Double
-            )
+            "CosineSimilarityStatistics" -> 0.0//stats(multiplications.collect().map(_.toDouble))(None)
           ),
 
           "Q2.3.5" -> Map(
@@ -172,12 +191,7 @@ object Predictor extends App {
           ),
 
           "Q2.3.7" -> Map(
-            "DurationInMicrosecForComputingSimilarities" -> Map(
-              "min" -> 0.0,  // Datatype of answer: Double
-              "max" -> 0.0, // Datatype of answer: Double
-              "average" -> 0.0, // Datatype of answer: Double
-              "stddev" -> 0.0 // Datatype of answer: Double
-            ),
+            "DurationInMicrosecForComputingSimilarities" -> benchmark(cos_dev.count()),
             "AverageTimeInMicrosecPerSuv" -> 0.0, // Datatype of answer: Double
             "RatioBetweenTimeToComputeSimilarityOverTimeToPredict" -> 0.0 // Datatype of answer: Double
           )
