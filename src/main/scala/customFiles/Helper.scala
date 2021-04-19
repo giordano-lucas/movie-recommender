@@ -22,7 +22,7 @@ sealed class Helper(train:RDD[Rating],test:RDD[Rating]) {
   val prep_ratings = 
     scaled_train.groupBy(_.user)  // groupby userId
                 .flatMap {        // each Rating will be mapped to a new Rating with scaled rating 
-                  case (_,rs) => rs.map(r => Rating(r.user,r.item, r.rating * Helper.l2_norm(rs)))
+                  case (_,rs) => rs.map(r => Rating(r.user,r.item, r.rating / Helper.l2_norm(rs)))
                   }               // mean of ratings
                 .cache()          // cache since it is used several times
   //****************************************************************************
@@ -56,7 +56,7 @@ object Helper {
   // mean function for lists of Ratings
   def meanRatings[T <: Iterable[Rating]] (rs:T) = rs.map(_.rating).sum / rs.size.toDouble
   // l2 norm on ratings
-  def l2_norm[T <: Iterable[Rating]] (rs:T) = math.sqrt(rs.map(r => r.rating * r.rating).sum / rs.size.toDouble)
+  def l2_norm[T <: Iterable[Rating]] (rs:T) = math.sqrt(rs.map(r => r.rating * r.rating).sum)
   // mean average error function
   def mae(rdd: RDD[(Double,Double)]) = 
     rdd.map{ case (rat, pred) => (rat - pred).abs}.mean()

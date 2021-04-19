@@ -1,6 +1,6 @@
 {
   "Q2.3.3" : {
-    "NumberOfSimilarityComputationsForU1BaseDataset" : 888306
+    "NumberOfSimilarityComputationsForU1BaseDataset" : 889249
   },
   "Q2.3.7" : {
     "DurationInMicrosecForComputingSimilarities" : { },
@@ -19,14 +19,14 @@
     "TotalBytesToStoreNonZeroSimilarityComputationsForU1BaseDataset" : 6584736
   },
   "Q2.3.1" : {
-    "CosineBasedMae" : 0.7517093547711133,
-    "CosineMinusBaselineDifference" : -0.01519064522888669
+    "CosineBasedMae" : 0.7489004144574366,
+    "CosineMinusBaselineDifference" : -0.017999585542563423
   },
   "Q2.3.6" : {
     "DurationInMicrosecForComputingPredictions" : { }
   },
   "Q2.3.2" : {
     "JaccardMae" : 0.7633851803222902,
-    "JaccardMinusCosineDifference" : 0.011675825551176855
+    "JaccardMinusCosineDifference" : 0.014484765864853588
   }
 }

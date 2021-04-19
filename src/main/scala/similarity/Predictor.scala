@@ -29,10 +29,6 @@ object Predictor extends App {
   // **********************************************************************************************
   // **********************************************************************************************
 
-  //val sqlContext = new org.apache.spark.sql.SQLContext(spark.sparkContext)
-  // this is used to implicitly convert an RDD to a DataFrame.
-  //import sqlContext.implicits._
-  //val df = train.toDF()
   //************************************************
   var h = Helper(train,test)
   //************************************************
@@ -80,7 +76,7 @@ object Predictor extends App {
   def jaccard_mae = Helper.mae(predict(userItemDeviation(test,jaccardSim)))
   // Question 2.3.3.
   val number_user = train.groupBy(_.user).keys.count().toInt
-  val nbSimComputations = (number_user * (number_user - 1)) // ??????? / 2
+  val nbSimComputations = number_user * number_user
   // Question 2.3.4.
   val multiplications = h.prep_ratings.map(r => (r.item,r))
               .groupByKey()
@@ -94,10 +90,13 @@ object Predictor extends App {
   // Question 2.3.5.
   val bytesSimilarities = multiplications.size * (64 / 8)
   // Question 2.3.6.
-  val benchPred = Map[String,Double]().withDefaultValue(0.0)//benchmark(preds.count())
+  val benchPred = Map[String,Double]().withDefaultValue(0.0) //benchmark(preds.count())
   // Question 2.3.7.
-  val benchSim  = Map[String,Double]().withDefaultValue(0.0)//benchmark(h.cosSim.count())
-  // ***************************************************
+  val benchSim  = Map[String,Double]().withDefaultValue(0.0) //benchmark(h.cosSim.count())
+  // **********************************************************************************************
+  // **********************************************************************************************
+  // **********************************************************************************************
+  // benchmark functions
                 
   def stats(series:Iterable[Double])(optN:Option[Int] = None):Map[String,Double] = {
     val n    = (optN getOrElse series.size).toDouble
@@ -129,34 +128,28 @@ object Predictor extends App {
             "CosineBasedMae" -> cosine_mae, // Datatype of answer: Double
             "CosineMinusBaselineDifference" -> (cosine_mae-0.7669)// Datatype of answer: Double
           ),
-
           "Q2.3.2" -> Map(
             "JaccardMae" -> jaccard_mae, // Datatype of answer: Double
             "JaccardMinusCosineDifference" -> (jaccard_mae-cosine_mae) // Datatype of answer: Double
           ),
-
           "Q2.3.3" -> Map(
             // Provide the formula that computes the number of similarity computations
             // as a function of U in the report.
             "NumberOfSimilarityComputationsForU1BaseDataset" -> nbSimComputations // Datatype of answer: Int
           ),
-
           "Q2.3.4" -> Map(
             "CosineSimilarityStatistics" -> stats(multiplications.map(_.toDouble))(None)
           ),
-
           "Q2.3.5" -> Map(
             // Provide the formula that computes the amount of memory for storing all S(u,v)
             // as a function of U in the report.
             "TotalBytesToStoreNonZeroSimilarityComputationsForU1BaseDataset" -> bytesSimilarities // Datatype of answer: Int
           ),
-
           "Q2.3.6" -> Map(
             "DurationInMicrosecForComputingPredictions" -> benchPred
             // Discuss about the time difference between the similarity method and the methods
             // from milestone 1 in the report.
           ),
-
           "Q2.3.7" -> Map(
             "DurationInMicrosecForComputingSimilarities" -> benchSim,
             "AverageTimeInMicrosecPerSuv" -> benchSim("average") / multiplications.size, // Datatype of answer: Double

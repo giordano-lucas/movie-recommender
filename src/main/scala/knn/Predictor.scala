@@ -32,22 +32,26 @@ object Predictor extends App {
   // **********************************************************************************************
   // **********************************************************************************************
   // **********************************************************************************************
-  
+  // this function is define to substitute to the apply function of a Map
+  // On top of the key, it takes a maxk parameter
+  // if (k < maxk) we output the same as what the map would have outputed
+  // otherwise we return 0.
   implicit def mapGetUpTo(map: Map[Int,(Double,Int)]) = new {
     def getUpTo(key: Int, maxk:Int): Double = {
       val (b,k) = map(key)
       if (k < maxk) b else 0.0
       } 
     }
-
+  // values of k to be considered
   val ks   = List(10, 30, 50, 100, 200, 300, 400, 800, 943)
-  val maxK = ks.max
+  val maxK = ks.max 
+  // helper as always
   val h    = Helper(train,test)
   // all cosine Similarities 
   val cosSim:RDD[(Int,Map[Int,(Double,Int)])]  = 
-    h.cosSim.groupByKey()
-            .mapValues{  
-                _.toList          // iterables cannot be sorted => list
+    h.cosSim.groupByKey()        // start from cosine similarity of Similarity.Predictor.
+            .mapValues{          // 
+                _.toList         // iterables cannot be sorted => list
                 .sortBy(-_._2)   // descending sort on similarities
                 .take(maxK)      // do not have to consider more that 943 neighbours
                 .zipWithIndex    // add neighouring position to the map (index = i => ith closed neighbour)
@@ -55,7 +59,7 @@ object Predictor extends App {
                 .toMap           // convert to Map
                 .withDefaultValue((0.0,maxK)) // add default value of 0.0
               }.cache()
-  
+  // user-specific weighted-sum deviation for all items
   def cos_dev = test             // same as in Similarity package
         .map(r => (r.user,r))
         .join(cosSim).values
@@ -65,16 +69,16 @@ object Predictor extends App {
             // Implement equation (2) to compute the user-specific weighted-sum deviation for item i
             ks.map(k =>                             // compute riu for all values of k 
               us.foldLeft((0.0,0.0)) {              // start with (0,0)
-                case ((num,den),Rating(v,_,r)) =>   
-                    (num + r * mapSim.getUpTo(v,k), 
-                    den + mapSim.getUpTo(v,k).abs)
-                }
+                case ((num,den),Rating(v,_,r)) =>   // iteratively construct the numerator and denominator for equation (2)
+                    (num + r * mapSim.getUpTo(v,k), // numerator computation
+                    den + mapSim.getUpTo(v,k).abs)  // denominator computation
+                } // finaly we can compute the deviation values
              ).map {case (num,den) => if (den == 0.0) 0.0 else num/den} 
         })}
-
+  // perform prediction for all values of k                 
   def kpred(opt_ls_riu:Option[List[Double]],ru:Double):List[Double] = 
-    opt_ls_riu.map(ls_riu => ls_riu.map(Helper.baselinePrediction(ru,_)))
-              .getOrElse(List.fill(ks.size)(h.globalAvgRating))
+    opt_ls_riu.map(ls_riu => ls_riu.map(Helper.baselinePrediction(ru,_)))  // prediction computation (equation (3) of assignement description) 
+              .getOrElse(List.fill(ks.size)(h.globalAvgRating))            // return global average if we got have a item/user deviation
       
   val predictions:RDD[(Double,List[Double])] = 
     test.map(r => ((r.user,r.item),r.rating))      // format pair for join on both item and users
@@ -85,23 +89,21 @@ object Predictor extends App {
       (r, kpred(opt_li_riu,ru))
     } // Note: output gloabal average if no item rating is available  
 
-
-  val maes = predictions
-                .map{
-                    case (rat, preds) => (preds.map(pred => (rat - pred).abs),1)
-               }.reduce{ 
-                    case ((l1,s1),(l2,s2)) => ((l1 zip l2).map{case(a,b) => a+b},s1+s2)}
-              match { case (ls,s) => ls.map(_ / s) }
-  //
+  val maes = predictions  // compute the k meas
+                .map{     // map each pred_k => | pred_k - actual rating |
+                 case (rat, preds) => (preds.map(pred => (rat - pred).abs),1)
+               }.reduce{  // simply sum all small terms
+                    case ((l1,s1),(l2,s2)) => ((l1 zip l2).map{case(a,b) => a+b},s1+s2)
+               } match { case (ls,s) => ls.map(_ / s) } // divide to get average maes
   // question 3.2.2.
-  //val nbSim = cos_dev.map(_.size).reduce(_ + _)
-  val nb_users = train.groupBy(_.user).keys.count().toInt
+  val nb_users     = train.groupBy(_.user).keys.count().toInt
   val ramSize:Long = (16 * 1 << 30)
-  val kBytes = kBytes.map(k => (k,k * nb_users * (3 * 64 / 8)))
-  val bytesPerUser = formatMaes("LowestKMaeMinusBaselineMae") * (3 * 64 / 8)
+  val kBytes       = ks.map(k => (k,k * nb_users * (3 * 64 / 8)))
+  val bytesPerUser = formatMaes("LowestKMaeMinusBaselineMae").asInstanceOf[Int] * (3 * 64 / 8)
   // **********************************************************************************************
   // **********************************************************************************************
   // **********************************************************************************************
+  // format k maes into the output json format
   def formatMaes:Map[String,Any] = {
     val zipped = ks.zip(maes)
     val out:Map[String,Double] = 
@@ -112,9 +114,12 @@ object Predictor extends App {
         "LowestKWithBetterMaeThanBaseline" -> minK,  
         "LowestKMaeMinusBaselineMae" -> (minMae - 0.7669)
     )
-  }
-  def formatBytes:Map[String,Double] =
+  } // format the output into json for the memory question
+  def formatBytes:Map[String,Int] =
        kBytes.map{ case(k,b) => (s"MinNumberOfBytesForK=${k}",b)}.toMap
+  // **********************************************************************************************
+  // **********************************************************************************************
+  // **********************************************************************************************
   // Save answers as JSON
   Setup.outputAnswers(Map(
           "Q3.2.1" -> formatMaes,
