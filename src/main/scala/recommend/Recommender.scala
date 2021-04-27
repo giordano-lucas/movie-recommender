@@ -39,7 +39,6 @@ object Recommender extends App {
   // **********************************************************************************************
   // ********************************** Personal File reading *************************************
   // **********************************************************************************************
-
   val persoId = 944 // my own user id
   val movies   = personalFile.map(l => {                    // create RDD of Movies from personalFile
       val cols = l.split(",").map(_.trim)                   // split on ',' but note that I had to change this row: {177,"Good The Bad and the Ugly The"} to make it work
@@ -57,36 +56,40 @@ object Recommender extends App {
   // **********************************************************************************************
   // ******************************* Recommendation computation ***********************************
   // **********************************************************************************************
-
-  val h              = Helper(unionData)  // create helper as usual                                                    
-  val persoRu:Double = unionData
-                        .filter(_.user == persoId)
-                        .map(_.rating)
-                        .mean() // only consider personal recommandations
-  val items          = h.prep_ratings
-                        .filter(_.user == persoId)
-                        .map(r => (r.item,r.rating))
-                        .collectAsMap
+  val h = Helper(unionData)        // create helper as usual                                                    
+  val persoRu:Double = unionData   // consider all data
+                        .filter(_.user == persoId)  // only consider personal recommandations
+                        .map(_.rating)              // get ratings
+                        .mean()                     // compute personal rating average
+  val items          = h.prep_ratings               // get personal item rated and the associated scaled rating 
+                        .filter(_.user == persoId)  // only consider personal recommandations
+                        .map(r => (r.item,r.rating))// prepare for collectAsMap
+                        .collectAsMap               // collect as a scala map
+  // compute similarities associated to personal user
   val cosSim = h.prep_ratings
-      .filter(items isDefinedAt _.item)
-      .map {case Rating(v,i,r) => (v, r * items(i))}
-      .reduceByKey(_ + _)
-      .sortBy(-_._2) // descending sort on similarities
-      .take(300)  
+      .filter{case Rating(v,i,_) => (items isDefinedAt i) &&  v != persoId} // no need to consider other items that those that were rated
+      .map {case Rating(v,i,r) => (v, r * items(i))}// precomputation for similarities  
+      .reduceByKey(_ + _)                           // sum for all users
+      .sortBy(-_._2)                                // descending sort on similarities
+      .take(300)                                    // only the first 300 are revelant here
+  // similarities for k=300 and k=30
   val sim300 = cosSim         .toMap.withDefaultValue(0.0) // map default value of 0.0
   val sim30  = cosSim.take(30).toMap.withDefaultValue(0.0) // map default value of 0.0
+  println(sim300.values.toList.sorted(Ordering.Double.reverse))
+  println("*****************")
+  println(sim30.values.toList.sorted(Ordering.Double.reverse))
   // prediction
   def pred(mapSim:Map[Int,Double]) = {
-    val dev = h.scaled_train
+    val dev = h.scaled_train // deviation computation as done before
                   .map{ case Rating(v,i,r) => (i,(r * mapSim(v), mapSim(v).abs))}
                   .reduceByKey {case ((a1,b1),(a2,b2)) => (a1+a2,b1+b2)}
                   .mapValues{case (num,den) => if (den == 0.0) 0.0 else num/den}
-    dev.mapValues(Helper.baselinePrediction(persoRu,_))          // perform baseline prediction
+    dev.mapValues(Helper.baselinePrediction(persoRu,_))   // perform prediction
   }
   def recommendations(preds:RDD[(Int,Double)]) = movies.filter(!_.rating.isDefined) // do not want to predict an already rated movie
                               .map(m => (m.item,m))                                 // prepare for join
                               .leftOuterJoin(preds).values                          // join with predictions
-                              .map {case (m,pred) => Movie(m.item,m.name, Some(pred getOrElse h.globalAvgRating))} // create new Movie with predicted rating
+                              .map {case (m,pred) => Movie(m.item,m.name, Some(pred getOrElse persoRu))} // create new Movie with predicted rating
                               .top(5)                                               // take top 5 recommandations
   // format a list of movies into the output required in the JSON file.
   def formatRecommendations(ls:Seq[Movie]) = ls.map(m => List(m.item,m.name,m.rating))

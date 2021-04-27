@@ -1,0 +1,6 @@
+{
+  "Q3.2.5" : {
+    "Top5WithK=30" : [ [ 52, "Madness of King George", 5.0 ], [ 57, "Priest (1994)", 5.0 ], [ 65, "What's Eating Gilbert Grape (1993)", 5.0 ], [ 92, "True Romance (1993)", 5.0 ], [ 114, "Wallace & Gromit: The Best of Aardman Animation (1996)", 5.0 ] ],
+    "Top5WithK=300" : [ [ 113, "Horseman on the Roof", 5.0 ], [ 119, "Maya Lin: A Strong Clear Vision (1994)", 5.0 ], [ 320, "Paradise Lost: The Child Murders at Robin Hood Hills (1996)", 5.0 ], [ 361, "Incognito (1997)", 5.0 ], [ 915, "Primary Colors (1998)", 5.0 ] ]
+  }
+}

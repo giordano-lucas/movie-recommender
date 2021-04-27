@@ -5,14 +5,9 @@ import org.apache.spark.sql.SparkSession
 
 // helper class
 sealed class Helper(train:RDD[Rating],test:RDD[Rating]) {
-  // variables first defined in Analyser
-   val globalPred = 3.0
-   val globalAvgRating = train.map(_.rating).mean() // average rating computation
    val user_ratings    = train.groupBy(_.user)               // groupby userId
                          .mapValues(Helper.meanRatings(_))   // mean of ratings
-   
-  //****************************************************************************
-  // 2.1 Preprocessing Ratings
+  // 2.1. Preprocessing Ratings
   // scale ratings as done in milestone 1
   val scaled_train = 
     train.map(r => (r.user,r))
@@ -60,7 +55,5 @@ object Helper {
   // mean average error function
   def mae(rdd: RDD[(Double,Double)]) = 
     rdd.map{ case (rat, pred) => (rat - pred).abs}.mean()
-
-  
 }
 
